@@ -257,5 +257,4 @@
             return sendData(data, cfg);
         }
     };
-    feat: add complete leadgen.js library code
 })(window);
