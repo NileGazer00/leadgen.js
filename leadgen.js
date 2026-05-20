@@ -11,7 +11,10 @@ const LeadGen = (function() {
         headers: {},
         onSuccess: null,
         onError: null,
-        formSelector: '#lead-form'
+        formSelector: '#lead-form',
+        // Original features preserved
+        theme: 'light',
+        validation: true
     };
 
     function init(options) {
@@ -20,10 +23,22 @@ const LeadGen = (function() {
         const form = document.querySelector(config.formSelector);
         if (form) {
             form.addEventListener('submit', handleSubmit);
-            console.log('✅ LeadGen.js initialized');
+            applyTheme();
+            console.log('✅ LeadGen.js v1.1.0 initialized');
         } else {
             console.error('❌ LeadGen.js: Form not found');
         }
+    }
+
+    function applyTheme() {
+        if (config.theme === 'dark') {
+            document.documentElement.style.setProperty('--bg', '#1a1a2e');
+            document.documentElement.style.setProperty('--text', '#ffffff');
+        }
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     async function handleSubmit(e) {
@@ -37,10 +52,24 @@ const LeadGen = (function() {
             data[key] = value;
         });
         
-        // Add timestamp
+        // Validation
+        if (config.validation) {
+            if (!data.fullName || !data.email) {
+                alert('Please fill all required fields.');
+                return;
+            }
+            if (!validateEmail(data.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+        }
+        
+        // Add metadata
         data.timestamp = new Date().toISOString();
+        data.source = 'LeadGen.js v1.1.0';
         
         try {
+            // Send to webhook (Make.com)
             const response = await fetch(config.webhookUrl, {
                 method: 'POST',
                 headers: {
