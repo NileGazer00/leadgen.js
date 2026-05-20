@@ -1,24 +1,84 @@
-# LeadGen.js
+/**
+ * LeadGen.js v1.1.0
+ * Zero-dependency JavaScript library for capturing leads directly to Google Sheets
+ * Now with Make.com webhook support
+ */
 
-Zero‑dependency JavaScript library for capturing leads directly to Google Sheets.
+const LeadGen = (function() {
+    let config = {
+        webhookUrl: '',
+        apiKey: '',
+        headers: {},
+        onSuccess: null,
+        onError: null,
+        formSelector: '#lead-form'
+    };
 
-- **MIT Licensed**
-- **No backend required** – uses Google Sheets as a database
-- **3KB minified+gzipped**
-- **Works with any framework**
+    function init(options) {
+        config = { ...config, ...options };
+        
+        const form = document.querySelector(config.formSelector);
+        if (form) {
+            form.addEventListener('submit', handleSubmit);
+            console.log('✅ LeadGen.js initialized');
+        } else {
+            console.error('❌ LeadGen.js: Form not found');
+        }
+    }
 
-## Quick start
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = {};
+        
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+        
+        // Add timestamp
+        data.timestamp = new Date().toISOString();
+        
+        try {
+            const response = await fetch(config.webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-make-apikey': config.apiKey,
+                    ...config.headers
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (response.ok) {
+                if (config.onSuccess) {
+                    config.onSuccess(data);
+                } else {
+                    console.log('✅ Lead sent successfully:', data);
+                    alert('Thank you! Your submission has been received.');
+                }
+                form.reset();
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        } catch (error) {
+            console.error('❌ LeadGen.js error:', error);
+            if (config.onError) {
+                config.onError(error);
+            } else {
+                alert('Something went wrong. Please try again later.');
+            }
+        }
+    }
 
-```html
-<form id="my-form">
-  <input name="name" required>
-  <input name="email" type="email" required>
-  <button>Submit</button>
-</form>
-<script src="https://cdn.jsdelivr.net/gh/NileGazer00/leadgen.js/leadgen.js"></script>
-<script>
-LeadGen.init({
-  formId: "my-form",
-  sheetUrl: "YOUR_GOOGLE_APPS_SCRIPT_URL"
-});
-</script>
+    return {
+        init: init,
+        version: '1.1.0'
+    };
+})();
+
+// Make available globally
+if (typeof window !== 'undefined') {
+    window.LeadGen = LeadGen;
+}
