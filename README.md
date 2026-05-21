@@ -1,78 +1,83 @@
 # LeadGen.js
 
-Zero-dependency JavaScript library for capturing leads directly to Google Sheets — no backend required.
+Automated lead generation and outreach landing page for modern sales workflows.
 
-[GitHub Repository](https://github.com/NileGazer00/leadgen.js) • [Live Site](https://leadgen.nilegazer.org/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](#)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![Built with HTML/CSS/JS](https://img.shields.io/badge/Built%20with-HTML%20%2F%20CSS%20%2F%20JavaScript-orange)](#)
 
-## About
+## Overview
 
-LeadGen.js is a lightweight JavaScript library that connects HTML forms to Google Sheets using Google Apps Script. It is built for developers who want a simple way to capture leads, newsletter signups, contact form submissions, or other form data without setting up a backend or database.
+LeadGen.js is a fast, responsive marketing site designed to help businesses present lead generation services, explain their process, and convert visitors into inquiries.
+
+It includes a clean homepage, supporting documentation pages, and a professional structure that makes the project easy to understand, maintain, and expand.
+
+## How it works
+
+```mermaid
+flowchart TD
+A[Visitor lands on site] --> B[Reads value proposition]
+B --> C[Reviews services and process]
+C --> D[Checks docs and examples]
+D --> E[Submits an inquiry or contacts the team]
+```
 
 ## Features
 
-- Zero dependencies.
-- No backend required.
-- Framework agnostic.
-- Built-in validation.
-- Theme support.
-- Session analytics.
-- CDN friendly.
-- Easy Google Sheets integration.
+- Clear, conversion-focused homepage.
+- Organized documentation pages for setup, examples, and API reference.
+- Responsive layout for desktop and mobile.
+- Simple static stack with HTML, CSS, and JavaScript.
+- Easy deployment with GitHub Pages.
 
-## How It Works
+## Project structure
 
-1. A visitor submits an HTML form.
-2. LeadGen.js validates the input and prepares the payload.
-3. Data is sent to a Google Apps Script web app.
-4. Apps Script writes the row into Google Sheets.
-5. The user gets a success response, redirect, or callback.
+- `index.html` — Main landing page.
+- `assets/` — Shared styles and scripts.
+- `docs/` — Supporting documentation pages.
+- `CNAME` — Custom domain configuration.
 
-## Quick Start
+## Getting started
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/NileGazer00/leadgen.js/leadgen.js"></script>
-<script>
-  LeadGen.init({
-    formId: "lead-form",
-    sheetUrl: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
-    theme: "light",
-    validate: true
-  });
-</script>
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/leadgen.js.git
+cd leadgen.js
 ```
 
-## Example Form
+### 2. Open the site locally
 
-```html
-<form id="lead-form">
-  <input name="name" type="text" placeholder="Name" required>
-  <input name="email" type="email" placeholder="Email" required>
-  <button type="submit">Send</button>
-</form>
-```
+Open `index.html` in your browser, or serve the project with a local web server.
 
-## Google Sheets Setup
+### 3. Customize the content
 
-1. Create a Google Sheet.
-2. Add headers in the first row that match your form field names.
-3. Open **Extensions → Apps Script**.
-4. Add your script and deploy it as a web app.
-5. Copy the deployed web app URL.
-6. Paste that URL into `LeadGen.init({ sheetUrl: ... })`.
+Update the branding, copy, contact details, and documentation pages to match your business.
 
-## Docs
+## Documentation
 
 - [Getting Started](docs/getting-started.html)
 - [Installation](docs/installation.html)
-- [Google Sheets Setup](docs/google-sheets-setup.html)
 - [API Reference](docs/api-reference.html)
 - [Examples](docs/examples.html)
 - [Troubleshooting](docs/troubleshooting.html)
+- [Google Sheets Setup](docs/google-sheets-setup.html)
 
-## Project Goal
+## Deployment
 
-LeadGen.js is designed to make lead capture simple, fast, and usable on static sites or frontend-only projects. It is intended to be a practical utility for freelancers, agencies, and small teams that need to collect and store leads without building a full backend.
+This project is ready for GitHub Pages deployment. If you use a custom domain, configure the `CNAME` file accordingly.
+
+## Troubleshooting
+
+If the site does not display correctly:
+- Confirm that all asset paths are correct.
+- Make sure the `docs/` and `assets/` folders are included in the deployment.
+- Check browser console errors for missing files or script issues.
+
+## Contributing
+
+Contributions are welcome. If you improve the layout, documentation, or user flow, submit a pull request with a clear description of the changes.
 
 ## License
 
-MIT
+Licensed under the MIT License.
