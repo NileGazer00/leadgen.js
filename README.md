@@ -1,9 +1,9 @@
 # LeadGen.js
 
-Automated lead generation and outreach landing page for modern sales workflows.
+Modern lead generation and outreach site for high-converting landing pages.
 
-[![Live Site](https://img.shields.io/badge/Live-leadgen.nilegazer.org-brightgreen)](https://leadgen.nilegazer.org)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-blue)](#)
+[![Live Site](https://img.shields.io/badge/Live-leadgen.js.org-brightgreen)](https://leadgen.js.org)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-blue)](#deployment)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![Built with HTML/CSS/JS](https://img.shields.io/badge/Built%20with-HTML%20%2F%20CSS%20%2F%20JavaScript-orange)](#)
 
@@ -66,11 +66,11 @@ Update branding, copy, contact details, and documentation pages to match your bu
 
 ## Deployment
 
-This project is deployed with GitHub Pages using the custom domain `leadgen.nilegazer.org`.
+This project is deployed with GitHub Pages using the custom domain `leadgen.js.org`.
 
-- Keep the `CNAME` file set to `leadgen.nilegazer.org`.
+- Keep the `CNAME` file set to `leadgen.js.org`.
 - Set the custom domain in the repository’s Pages settings.
-- Confirm your DNS points correctly to GitHub Pages [web:271][web:278].
+- Confirm your DNS points correctly to GitHub Pages.
 
 ## Troubleshooting
 
