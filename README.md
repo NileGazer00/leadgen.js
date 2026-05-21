@@ -2,15 +2,16 @@
 
 Automated lead generation and outreach landing page for modern sales workflows.
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](#)
+[![Live Site](https://img.shields.io/badge/Live-leadgen.nilegazer.org-brightgreen)](https://leadgen.nilegazer.org)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-blue)](#)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![Built with HTML/CSS/JS](https://img.shields.io/badge/Built%20with-HTML%20%2F%20CSS%20%2F%20JavaScript-orange)](#)
 
 ## Overview
 
-LeadGen.js is a fast, responsive marketing site designed to help businesses present lead generation services, explain their process, and convert visitors into inquiries.
+LeadGen.js is a fast, responsive marketing site designed to present lead generation services, explain the process clearly, and convert visitors into inquiries.
 
-It includes a clean homepage, supporting documentation pages, and a professional structure that makes the project easy to understand, maintain, and expand.
+It includes a clean homepage, supporting documentation pages, and a simple static architecture that is easy to maintain and expand.
 
 ## How it works
 
@@ -24,7 +25,7 @@ D --> E[Submits an inquiry or contacts the team]
 
 ## Features
 
-- Clear, conversion-focused homepage.
+- Conversion-focused homepage.
 - Organized documentation pages for setup, examples, and API reference.
 - Responsive layout for desktop and mobile.
 - Simple static stack with HTML, CSS, and JavaScript.
@@ -52,7 +53,7 @@ Open `index.html` in your browser, or serve the project with a local web server.
 
 ### 3. Customize the content
 
-Update the branding, copy, contact details, and documentation pages to match your business.
+Update branding, copy, contact details, and documentation pages to match your business.
 
 ## Documentation
 
@@ -65,18 +66,22 @@ Update the branding, copy, contact details, and documentation pages to match you
 
 ## Deployment
 
-This project is ready for GitHub Pages deployment. If you use a custom domain, configure the `CNAME` file accordingly.
+This project is deployed with GitHub Pages using the custom domain `leadgen.nilegazer.org`.
+
+- Keep the `CNAME` file set to `leadgen.nilegazer.org`.
+- Set the custom domain in the repository’s Pages settings.
+- Confirm your DNS points correctly to GitHub Pages [web:271][web:278].
 
 ## Troubleshooting
 
 If the site does not display correctly:
-- Confirm that all asset paths are correct.
-- Make sure the `docs/` and `assets/` folders are included in the deployment.
+- Confirm all asset paths are correct.
+- Make sure the `docs/` and `assets/` folders are included in deployment.
 - Check browser console errors for missing files or script issues.
 
 ## Contributing
 
-Contributions are welcome. If you improve the layout, documentation, or user flow, submit a pull request with a clear description of the changes.
+Contributions are welcome. Submit a pull request with a clear description of the changes.
 
 ## License
 
